@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>474348056980-sg97r7i0bs96d80s1mg0m1jgk1bscdnm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.474348056980-sg97r7i0bs96d80s1mg0m1jgk1bscdnm</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCATlgoK-b4URaGqf76sb8IICVmWfiN_Fo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>474348056980</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.kruuzClient</string>
+	<key>PROJECT_ID</key>
+	<string>kruuz-32cea</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kruuz-32cea.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:474348056980:ios:695b5be6713655f2</string>
+	<key>DATABASE_URL</key>
+	<string>https://kruuz-32cea.firebaseio.com</string>
+</dict>
+</plist>

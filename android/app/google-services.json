@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "474348056980",
+    "firebase_url": "https://kruuz-32cea.firebaseio.com",
+    "project_id": "kruuz-32cea",
+    "storage_bucket": "kruuz-32cea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474348056980:android:ebcf2b646a00a9ab",
+        "android_client_info": {
+          "package_name": "com.example.kruuz_client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474348056980-o6pund6svc75brjfkdhj6s18uopjgdgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuT3VlAyxYrTwZnc2obz3gkQ3GxT4o9kk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474348056980-o6pund6svc75brjfkdhj6s18uopjgdgv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "474348056980-sg97r7i0bs96d80s1mg0m1jgk1bscdnm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kruuzClient"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
