@@ -117,6 +117,7 @@ class _RegisterFormState extends State<RegisterForm>
                                 controller1.reverse();
                                 controller2.forward();
                               }
+                              _dotController.clear();
                               isTrucker = value;
                             },
                           );

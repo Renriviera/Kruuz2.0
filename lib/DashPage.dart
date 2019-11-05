@@ -65,7 +65,7 @@ class _DashState extends State<DashPage> {
                   );
                 } else {
                   var singleLoad = snapshot.data.documents[0];
-//                  print('${singleLoad}');
+                  print('${singleLoad}');
                   return new Padding(
                     padding: EdgeInsets.all(10),
                     child: Material(
@@ -342,23 +342,33 @@ class _DashState extends State<DashPage> {
                               children: <Widget>[
                                 RaisedButton(
                                   child: Text(
-                                    'Update Status',
+                                    'Close Load', //upload picture and upload status
                                     style: TextStyle(color: Colors.white),
                                   ),
-                                  color: Colors.lightBlueAccent,
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => UploadPhotoPage(
-                                          loadID: singleLoad.documentID,
-                                          shipper: singleLoad['shipper'],
-                                          trucker: singleLoad['trucker'],
-                                          process: singleLoad['process'],
-                                        ),
-                                      ),
-                                    );
-                                    //.then((onValue) {});
+                                  color: Colors.red,
+                                  onPressed: ()
+//                                    Navigator.push(
+//                                      context,
+//                                      MaterialPageRoute(
+//                                        builder: (context) => UploadPhotoPage(
+//                                          loadID: singleLoad.documentID,
+//                                          shipper: singleLoad['shipper'],
+//                                          trucker: singleLoad['trucker'],
+//                                          process: singleLoad['process'],
+//                                        ),
+//                                      ), //for upload picture
+//                                    );
+                                      async {
+                                    await Firestore.instance
+                                        .runTransaction((Transaction tx) async {
+                                      await tx.update(
+                                          Firestore.instance
+                                              .collection('Load')
+                                              .document('${singleLoad.loadId}'),
+                                          <String, dynamic>{'trucker': ''});
+                                    }).then((onValue) {
+                                      Navigator.pop(context);
+                                    });
                                   },
                                 ),
                               ],

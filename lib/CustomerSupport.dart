@@ -122,7 +122,7 @@ class CustomerSupportPage extends StatelessWidget {
                                     fontSize: 20.0),
                               ),
                               Text(
-                                "631-123-4567",
+                                "631-704-3924",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -222,7 +222,7 @@ _launchUrl(int option) async {
       }
       break;
     case 2:
-      const url = "tel: 6312409951";
+      const url = "tel: 6317043294";
       if (await canLaunch(url)) {
         await launch(url);
       } else {

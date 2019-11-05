@@ -18,8 +18,9 @@ class _NewLoadPageState extends State<NewLoadPage> {
   final dateFormat = DateFormat("EEEE, MMMM d, yyyy 'at' h:mma");
   String dropoff, pickup, type;
   DateTime pickupDate, dropoffDate;
-  double length, width, height, weight;
+  double length, width, height, weight, price;
   int _myTaskType = 0;
+  final TextEditingController _priceController = TextEditingController();
   final TextEditingController _dropoffController = TextEditingController();
   final TextEditingController _pickupController = TextEditingController();
   final TextEditingController _pickupDateController = TextEditingController();
@@ -31,7 +32,6 @@ class _NewLoadPageState extends State<NewLoadPage> {
 
   _onPickupChanged(pickup) {
     this.pickup = pickup;
-    print(this.pickup);
   }
 
   _onDropoffChanged(dropoff) {
@@ -47,28 +47,35 @@ class _NewLoadPageState extends State<NewLoadPage> {
 //  }
 
   _onLengthChanged(length) {
-    print('here');
-    double feet = double.parse(length.substring(0, length.indexOf(',')).trim());
-    double inches = double.parse(length.substring(length.indexOf(',')).trim());
-    this.length = feet + (inches / 12.0);
-    print(this.length);
+//    double feet = double.parse(length.substring(0, length.indexOf(',')).trim());
+//    double inches = double.parse(length.substring(length.indexOf(',')).trim());
+//    this.length = feet + (inches / 12.0);
+//    print(this.length);
+    this.length = double.parse(length);
   }
 
   _onWidthChanged(width) {
-    double feet = double.parse(width.substring(0, width.indexOf(',')).trim());
-    double inches = double.parse(width.substring(width.indexOf(',')).trim());
-    this.width = feet + (inches / 12.0);
+//    double feet = double.parse(width.substring(0, width.indexOf(',')).trim());
+//    double inches = double.parse(width.substring(width.indexOf(',')).trim());
+//    this.width = feet + (inches / 12.0);
+    this.width = double.parse(width);
   }
 
   _onHeightChanged(height) {
-    double feet = double.parse(height.substring(0, height.indexOf(',')).trim());
-    double inches = double.parse(height.substring(height.indexOf(',')).trim());
-    this.height = feet + (inches / 12.0);
-    print('height');
+//    double feet = double.parse(height.substring(0, height.indexOf(',')).trim());
+//    double inches = double.parse(height.substring(height.indexOf(',')).trim());
+//    this.height = feet + (inches / 12.0);
+//    print(this.height);
+    this.height = double.parse(height);
   }
 
   _onWeightChanged(weight) {
     this.weight = double.parse(weight);
+  }
+
+  _onPriceChanged(price) {
+    this.price = double.parse(price);
+    print(this.price);
   }
 
   _createData(name) {
@@ -82,11 +89,11 @@ class _NewLoadPageState extends State<NewLoadPage> {
       "pickupAddress": pickup,
       "pickupDate": pickupDate,
       "expirationDate": dropoffDate,
-      "length": 5,
-      "height": 5,
-      "width": 5,
-      "weight": 2000,
-      "value": 5000,
+      "length": length,
+      "height": height,
+      "width": width,
+      "weight": weight,
+      "value": price,
     };
     ds.setData(loadDetails).whenComplete(() {
       print('Task created');
@@ -113,7 +120,6 @@ class _NewLoadPageState extends State<NewLoadPage> {
 
   void initState() {
     super.initState();
-//    _dropoffController.addListener(_onDropoffChanged)
   }
 
   @override
@@ -188,13 +194,27 @@ class _NewLoadPageState extends State<NewLoadPage> {
                         Padding(
                           padding: EdgeInsets.only(left: 16.0, right: 16.0),
                           child: TextField(
+                            controller: _priceController,
+                            onChanged: (String price) {
+                              _onPriceChanged(price);
+                            },
+                            decoration: InputDecoration(
+                              labelText: "Price: ",
+                              hintText: "XXXX.XX",
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                          child: TextField(
                             controller: _pickupController,
                             onChanged: (String pickup) {
                               _onPickupChanged(pickup);
                             },
                             decoration: InputDecoration(
-                                labelText: "Pickup Address: ",
-                                hintText: "# Street, City, State"),
+                              labelText: "Pickup Address: ",
+                              hintText: "# Street, City, State",
+                            ),
                           ),
                         ),
                         Padding(
@@ -299,7 +319,7 @@ class _NewLoadPageState extends State<NewLoadPage> {
                                                   },
                                                   decoration: InputDecoration(
                                                     labelText: "Length: ",
-                                                    hintText: 'X,Y',
+                                                    hintText: 'X',
                                                   ),
                                                 ),
                                               ),
@@ -311,7 +331,7 @@ class _NewLoadPageState extends State<NewLoadPage> {
                                                   },
                                                   decoration: InputDecoration(
                                                       labelText: 'Width: ',
-                                                      hintText: 'X,Y'),
+                                                      hintText: 'X'),
                                                 ),
                                               ),
                                               Padding(
@@ -322,7 +342,7 @@ class _NewLoadPageState extends State<NewLoadPage> {
                                                   },
                                                   decoration: InputDecoration(
                                                       labelText: 'Height: ',
-                                                      hintText: 'X,Y'),
+                                                      hintText: 'X'),
                                                 ),
                                               ),
                                               Padding(
@@ -342,6 +362,7 @@ class _NewLoadPageState extends State<NewLoadPage> {
                                                 child: RaisedButton(
                                                   child: Text("Submit"),
                                                   onPressed: () {
+                                                    Navigator.pop(context);
                                                     print('here');
                                                   },
                                                 ),
@@ -367,6 +388,7 @@ class _NewLoadPageState extends State<NewLoadPage> {
                                   _formKey1.currentState.save();
                                   _formKey1.currentState.reset();
                                   _pickupController.clear();
+                                  _priceController.clear();
                                   _dropoffController.clear();
                                 }
                               },

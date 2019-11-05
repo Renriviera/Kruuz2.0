@@ -19,15 +19,16 @@ class PreferencesPage extends StatelessWidget {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-              colors: [
-                const Color.fromRGBO(3, 252, 232, 0.8),
-                const Color.fromRGBO(3, 136, 252, 0.4)
-              ],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-            )),
-          )
+              gradient: LinearGradient(
+                colors: [
+                  const Color.fromRGBO(3, 252, 232, 0.8),
+                  const Color.fromRGBO(3, 136, 252, 0.4)
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+            ),
+          ),
         ],
       ),
       backgroundColor: Colors.white,

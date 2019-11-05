@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kruuz_flutter/authentication_bloc/bloc.dart';
+import 'Settings.dart';
 import 'LoadsPage.dart';
-import 'NavigationPage.dart';
+import 'NavigationPageContainer.dart';
 import 'DashPage.dart';
 import 'PhotoUpload.dart';
 import 'Banking.dart';
@@ -31,7 +32,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
-  final List<Widget> _children = [NavigationPage(), DashPage(), LoadsPage()];
+  final List<Widget> _children = [
+    NavigationPageContainer(),
+    DashPage(),
+    LoadsPage()
+  ];
 
   void onTabTapped(int index) {
     setState(() {
@@ -141,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                     onTap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return new UploadPhotoPage();
+                        return new SettingsPage();
                       }));
                     },
                   ),
